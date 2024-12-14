@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+    body{
+        background-color: antiquewhite;
+    }
+    .container{
+        display: flex;
+        flex-direction: column !important;
+        width: 200px;
+        margin: auto;
+        align-content: center;
+        justify-content: center;
+        padding: auto;
+        margin-top: 10px;
+        height: 150px;
+        cursor:all-scroll;
+    }
+    .btn{
+        margin-left:250px;
+        margin-top: 0px;
+        border: 1px solid red;
+        
+    }
+    #form{
+        background-color: rgb(253, 254, 254);
+        border: 2px solid rgb(235, 225, 225);
+        height: 500px;
+        height: 300px;
+        width: 700px;
+        margin-left: 255px;
+        margin-top: 180px;
+        animation-name: gg;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        transition: transform 0.3s, box-shadow 0.3s;
+
+    }
+    #form:hover{
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    #form input{
+        transition: border-color 0.3s;
+
+    }
+    .btn:hover{
+    background-color: #ff5733;
+    }
+    #form input:focus{
+        border: 1px solid red;
+        outline: none;
+    }
+    .button{
+        margin-left: 300px;
+        color: white;
+        font-family: fantasy;
+        background-color: blue;     
+    }
+    .bton{
+        color: white;
+        background-color: blue;
+        font-family: fantasy;
+        margin-top: 33px;
+    }
+    .fa-facebook{
+        border: 1px solid black;
+        width: 150px;
+        outline: none;display: none;
+    }
+    .loginbtn{
+border: 2px solid black;
+list-style: none;
+text-decoration: none;
+    }
+    .login-container{
+        text-align: center;
+        text-decoration: none;
+        list-style: none;
+    }
+    .fa-google{
+        color:blue;
+    }
+   </style>
+    
+</head>
+<body>
+    <form id="form">
+        <button class="button">Signup</button>
+        <button class="bton">Login</button>
+        <div class="container">
+            Name:<input type="text" placeholder="Enter your name" required id="name">
+            Phone:<input type="text" placeholder="Enter your phone no" required id="phone">
+            Email:<input type="email" placeholder="Enter your Email" required id="email">
+        </div>
+        <div class="login-container">
+            <a href="#" class="login-btn">
+                <i class="fab fa-facebook-f"></i> Login with Facebook
+            </a><br>
+            <a href="#" class="login-btn">
+                <i class="fab fa-google"></i>Login with google
+            </a>
+        </div>
+    </form>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    const input = document.getElementById('name');
+    const input1 = document.getElementById('phone');
+    const input2 = document.getElementById('email');
+
+const name  =input.value;
+const phone = input1.value;
+const email = input2.value;
+
+
+
+
+
+    
+console.log('Name:',name);
+console.log('Phone:',phone);
+console.log('Email:',email);
+alert('form submitted');
+
+input.value = '';
+input1.value = '';
+input2.value = '';
+
+
+
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h3>Navbar</h3>
+            <label class="open-menu" id="open-menu" onclick="openMenu()"><i class="fas fa-bars"></i></label>
+            <label class="close-menu" id="close-menu" onclick="closeMenu()"><i class="fas fa-times"></i></label>
+
+            <!-- Horizontal Navbar -->
+            <ul class="menu" id="menu">
+                <li><a href="#" onclick="loadProject('home')">Home</a></li>
+                <li><a href="#" onclick="loadProject('project1')">Clock</a></li>
+                <li><a href="#" onclick="loadProject('project2')">slider</a></li>
+                <li><a href="#" onclick="loadProject('project3')">grocery list</a></li>
+                <li><a href="#" onclick="loadProject('project4')">Functional form</a></li>
+                <li><a href="#" onclick="loadProject('project5')">color flipper</a></li>
+            </ul>
+
+            <!-- Vertical Navbar -->
+            <ul class="cls" id="id">
+                <li><a href="#" onclick="loadProject('home')">Home</a></li>
+                <li><a href="#" onclick="loadProject('project1')">Clock</a></li>
+                <li><a href="#" onclick="loadProject('project2')">slider</a></li>
+                <li><a href="#" onclick="loadProject('project3')">grocery list</a></li>
+                <li><a href="#" onclick="loadProject('project4')">Functional form</a></li>
+                <li><a href="#" onclick="loadProject('project5')">color flipper</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <!-- Add iframe to display the project -->
+        <iframe id="project-frame" src="calculator/calculator.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

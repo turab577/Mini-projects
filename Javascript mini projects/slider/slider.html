@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+</head>
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+  }
+  .container {
+      width: 60%;
+      max-width: 800px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      background-color: #fff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  h1 {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: larger;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 100;
+  }
+  #prev {
+      left: 10px;
+  }
+  #next {
+      right: 10px;
+  }
+  .Items {
+      width: 100%;
+      height: 100%;
+      display: none;
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .Items img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+  }
+  .indicator {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+  }
+  .indicator span {
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+  }
+  .indicator .active {
+      background-color: #717171;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="Items"><img src="./first.avif" alt="Image 1"></div>
+  <div class="Items"><img src="./img6.avif" alt="Image 2"></div>
+  <div class="Items"><img src="./img2.jpg" alt="Image 3"></div>
+  <button id="prev" class="btn">&#10094;</button>
+  <button id="next" class="btn">&#10095;</button>
+  <div class="indicator">
+      <span data-slide="0" class="active"></span>
+      <span data-slide="1"></span>
+      <span data-slide="2"></span>
+  </div>
+</div>
+
+<script>
+  let items = document.querySelectorAll('.Items');
+  let indicators = document.querySelectorAll('.indicator span');
+  let currentIndex = 0;
+  let slideInterval;
+
+  function showSlide(index) {
+      items.forEach((item, i) => {
+          item.style.display = 'none';
+          item.style.opacity = 0
+      });
+      items[index].style.display = 'block';
+      setTimeout(() => {
+          items[index].style.opacity = 1
+      },10)
+  }
+
+  function nextSlide() {
+      currentIndex = (currentIndex + 1) % items.length;
+      showSlide(currentIndex);
+  }
+
+  function previousSlide() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      showSlide(currentIndex);
+  }
+
+  function startSlideShow() {
+      slideInterval = setInterval(nextSlide, 2000);
+  }
+
+  function stopSlideShow() {
+      clearInterval(slideInterval);
+  }
+  showSlide(currentIndex);
+  startSlideShow();
+  document.getElementById('next').addEventListener('click',nextSlide);
+  document.getElementById('prev').addEventListener('click', previousSlide);
+  document.querySelector('.container').addEventListener('mouseover', stopSlideShow);
+  document.querySelector('.container').addEventListener('mouseout', startSlideShow);
+</script>
+</body>
+</html>

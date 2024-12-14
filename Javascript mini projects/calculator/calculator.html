@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+            integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <style>
+        #calc {
+            width: 270px;
+            background-color: white;
+            border: 1px solid black;
+            margin-left: 5px;
+            height: 50px;
+        }
+        form {
+            border: 1px solid black;
+            width: 300px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        
+        form input {
+            width: 65px;
+            margin-top: 5px;
+            border: 1px solid rgb(5, 4, 4);
+            border-radius: 6px;
+            height: 45px;
+            background-color: rgb(241, 238, 233);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form name="form1">
+            <input type="text" id="calc" name="answer">
+            <br><br>
+
+            <input type="button" value="1" onclick="form1.answer.value += '1'">
+            <input type="button" value="2" onclick="form1.answer.value += '2'">
+            <input type="button" value="3" onclick="form1.answer.value += '3'">
+            <input type="button" value="+" onclick="form1.answer.value += '+'">
+            <br><br>
+            <input type="button" value="4" onclick="form1.answer.value += '4'">
+            <input type="button" value="5" onclick="form1.answer.value += '5'">
+            <input type="button" value="6" onclick="form1.answer.value += '6'">
+            <input type="button" value="-" onclick="form1.answer.value += '-'">
+            <br><br>
+
+            <input type="button" value="7" onclick="form1.answer.value += '7'">
+            <input type="button" value="8" onclick="form1.answer.value += '8'">
+            <input type="button" value="9" onclick="form1.answer.value += '9'">
+            <input type="button" value="*" onclick="form1.answer.value += '*'">
+            <br><br>
+            <input type="button" value="/" onclick="form1.answer.value += '/'">
+            <input type="button" value="0" onclick="form1.answer.value += '0'">
+            <input type="button" value="." onclick="form1.answer.value += '.'">
+            <input type="button" value="=" onclick="calculate()"><br><br>
+            <input type="button" value="clear all" onclick="form1.answer.value = ''">
+        </form>
+    </div>
+    <script>
+        function calculate() {
+            try {
+                const result = math.evaluate(form1.answer.value);
+                form1.answer.value = result;
+            } 
+            catch (error) {
+                form1.answer.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
